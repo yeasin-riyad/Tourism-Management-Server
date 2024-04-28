@@ -53,6 +53,14 @@ async function run() {
       res.send(result)
 
     })
+
+    app.get('/myList/:name',async(req,res)=>{
+      const Name=req.params.name
+      const query={name:Name}
+      const cursor = tourismSpots.find(query);
+      const result=await cursor.toArray()
+      res.send(result)
+    })
     
     
     // Send a ping to confirm a successful connection

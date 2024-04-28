@@ -8,9 +8,14 @@ const countries=[
         country_name:"CANADA",
         image:"https://media2.thrillophilia.com/images/photos/000/371/203/original/1621021115_shutterstock_654737650.jpg?w=753&h=450&dpr=1.0",
         description:"One of the naturally held stunning waterfalls of the World, Niagara falls attracts a large number of visitors every year with it's aesthetic scenes. There's also a large number of amenities facilities while wandering around the falls like watching the whole scene of waterfalls from the observation towers."
-    }
+    },
     {
-        country_name:""
+        country_name:"CANADA",
+        image:"https://media2.thrillophilia.com/images/photos/000/371/205/original/1621021294_shutterstock_757474960.jpg?w=753&h=450&dpr=1.0",
+        description:"Montreal is the highest ranked and the largest city of Canada lying centrally on the floor of the island of Montreal. It has many historical tourist places in Canada with multi-cultural importance. Here you can witness some of the exotic beauty of the peak, multiple cuisines, festivals, art and culture with a French accent."
+
+
     }
+   
 
 ]
