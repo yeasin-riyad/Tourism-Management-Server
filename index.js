@@ -1,5 +1,6 @@
 const express=require('express')
 const cors=require('cors')
+const countries=require('./Countries')
 require('dotenv').config()
 
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
@@ -30,6 +31,7 @@ async function run() {
     await client.connect();
     const tourismManagement = client.db("tourismManagement")
     const tourismSpots=tourismManagement.collection("touristSpots")
+    const countriesCollection=tourismManagement.collection("Countries")
     app.post('/touristSpot',async(req,res)=>{
       const touristSpot=req.body;
       const result = await tourismSpots.insertOne(touristSpot);
