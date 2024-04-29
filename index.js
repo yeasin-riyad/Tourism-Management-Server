@@ -40,6 +40,14 @@ async function run() {
 
 
     })
+
+    app.post('/countries',async(req,res)=>{
+      const options = { ordered: true };
+      const result = await countriesCollection.insertMany(docs, countries);
+      
+
+
+    })
     app.get('/touristSpot',async(req,res)=>{
      
       const data=tourismSpots.find()
