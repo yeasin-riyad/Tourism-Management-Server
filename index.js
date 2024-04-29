@@ -1,6 +1,6 @@
 const express=require('express')
 const cors=require('cors')
-const countries=require('./Countries')
+
 require('dotenv').config()
 
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
@@ -31,7 +31,8 @@ async function run() {
     await client.connect();
     const tourismManagement = client.db("tourismManagement")
     const tourismSpots=tourismManagement.collection("touristSpots")
-    const countriesCollection=tourismManagement.collection("Countries")
+    
+    const Countries=tourismManagement.collection("Countries")
     app.post('/touristSpot',async(req,res)=>{
       const touristSpot=req.body;
       const result = await tourismSpots.insertOne(touristSpot);
@@ -41,13 +42,7 @@ async function run() {
 
     })
 
-    app.post('/countries',async(req,res)=>{
-      const options = { ordered: true };
-      const result = await countriesCollection.insertMany(docs, countries);
-      
 
-
-    })
     app.get('/touristSpot',async(req,res)=>{
      
       const data=tourismSpots.find()
@@ -55,6 +50,11 @@ async function run() {
    
       res.send(result)
 
+    })
+    app.get('/countries',async(req,res)=>{
+      const data=Countries.find()
+      const result=await data.toArray()
+      res.send(result)
     })
     app.get('/touristSpot/:id',async(req,res)=>{
       const id=req.params?.id
