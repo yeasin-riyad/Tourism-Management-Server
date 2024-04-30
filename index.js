@@ -8,6 +8,10 @@ const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const app=express()
 const port=process.env.PORT || 5001;
 
+// app.use(cors({
+//   origin:["http://localhost:5173/","https://tourism-management-21134.web.app/"]
+// }))
+
 app.use(cors())
 app.use(express.json())
 
@@ -33,6 +37,10 @@ async function run() {
     const tourismSpots=tourismManagement.collection("touristSpots")
     
     const Countries=tourismManagement.collection("Countries")
+
+    app.get("/",async(req,res)=>{
+      res.send("server is running")
+    })
     app.post('/touristSpot',async(req,res)=>{
       const touristSpot=req.body;
       const result = await tourismSpots.insertOne(touristSpot);
